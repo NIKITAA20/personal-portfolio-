@@ -1,0 +1,103 @@
+/* AISummary.css */
+
+/* Container for AI SUMMARY */
+.ai-summary-container {
+  padding: 25px 30px;
+  border-radius: 20px;
+  margin: 25px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* light colorful gradient */
+  box-shadow: 0 10px 35px rgba(102, 126, 234, 0.2); /* subtle colorful shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Hover effect for container */
+.ai-summary-container:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(255, 107, 107, 0.3); /* light colorful glow */
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); /* brighter hover gradient */
+}
+
+/* Header - AI SUMMARY */
+.ai-summary-container h3 {
+  margin-bottom: 20px;
+  font-size: 34px;
+  font-weight: 900; /* extra bold */
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff0000, #00ff00, #ffff00, #00ffff); /* bright red, green, yellow, cyan */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; /* standard */
+  animation: textGradient 5s ease infinite;
+  background-size: 400% 400%;
+  text-align: center;
+}
+
+/* Individual education card */
+.education-card {
+  background: #ffffff; /* clean white background */
+  border-left: 5px solid #ff6b6b; /* vibrant red accent */
+  color: #2c3e50; /* dark text for readability */
+  padding: 20px 25px;
+  border-radius: 15px;
+  margin-bottom: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.5s ease;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Hover effect for card */
+.education-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3); /* colorful red glow on hover */
+  border-left-color: #4ecdc4; /* changes to teal on hover */
+}
+
+/* Card title */
+.education-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #ff9f43; /* vibrant orange for titles */
+}
+
+/* CGPA badge */
+.cgpa {
+  background: #a8e6cf; /* light mint green */
+  color: #2c3e50; /* dark text */
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: 15px;
+  margin-left: 10px;
+  font-size: 14px;
+  border: 1px solid #4ecdc4; /* subtle teal border */
+}
+
+/* Bullet points */
+.education-card ul {
+  margin-left: 20px;
+  color: #34495e; /* medium dark for bullets */
+  line-height: 1.6;
+  list-style-type: disc;
+  list-style-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="%23ff6b6b"/></svg>'); /* colorful bullet icon */
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dynamic gradient animation for header */
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
