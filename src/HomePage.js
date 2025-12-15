@@ -105,6 +105,12 @@ const HomePage = () => {
 
     if (item.toLowerCase() === 'education') {
   navigate('/education-search');
+  } 
+ if (item.toLowerCase() === 'experience') {
+    navigate('/experience-search');
+  }
+if (item.toLowerCase() === 'skills') {
+    navigate('/skills-search');
   } };
 
   
@@ -172,7 +178,7 @@ const HomePage = () => {
       <div className="topHeader">
         <a href="mailto:nikitasolanki767@gmail.com" className="headerLink" target="_blank" rel="noreferrer">Gmail</a>
         <a href="https://www.linkedin.com/in/nikita-datadriven20/" className="headerLink" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com/nikitajitendrasolanki" className="headerLink" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/NIKITAA20/" className="headerLink" target="_blank" rel="noreferrer">GitHub</a>
 
         <div className="appsWrapper" ref={skillsMenuRef}>
           <MdApps className="googleAppsIcon" onClick={toggleSkillsMenu} />
