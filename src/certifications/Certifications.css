@@ -1,24 +1,22 @@
-/* FULL SCREEN BACKGROUND */
+/* Full screen container */
 .lottie-fullscreen {
   width: 100vw;
   height: 100vh;
-  background: transparent; /* keep your existing bg */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* LOTTIE SIZE CONTROL */
-.lottie-fullscreen iframe {
-  width: 420px;
-  height: 420px;
-  border: none;
+/* BIG animation */
+.lottie-big {
+  width: 520px;
+  height: 520px;
 }
 
-/* Mobile Responsive */
+/* Mobile responsive */
 @media (max-width: 768px) {
-  .lottie-fullscreen iframe {
-    width: 300px;
-    height: 300px;
+  .lottie-big {
+    width: 320px;
+    height: 320px;
   }
 }

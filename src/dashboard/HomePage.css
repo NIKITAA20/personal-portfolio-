@@ -582,3 +582,19 @@
     padding: 6px;
   }
 }
+/* ✅ MOBILE FIX FOR PROFILE CARD */
+@media (max-width: 768px) {
+  .profileCard {
+    position: fixed;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 320px;
+    right: auto;
+    border-radius: 12px;
+    padding: 14px;
+    z-index: 9999;
+  }
+}
+
