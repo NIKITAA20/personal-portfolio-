@@ -539,3 +539,46 @@
   width: 26px;
   height: 26px;
 }
+
+
+/* 📱 Mobile Search Bar Fix */
+@media (max-width: 768px) {
+  .searchContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .searchBar {
+    width: 90%;
+    max-width: 360px;
+    border-radius: 22px;
+  }
+
+  .searchRow {
+    height: 46px;
+    padding: 0 12px;
+  }
+
+  .searchInput {
+    font-size: 14px;
+  }
+}
+/* 📱 Mobile fix for 6-dot menu */
+@media (max-width: 768px) {
+  .skillsPopup {
+    width: 90%;
+    max-width: 320px;
+    right: 5%;
+    top: 50px;
+    max-height: 65vh;
+    overflow-y: auto;
+    border-radius: 12px;
+  }
+}
+@media (max-width: 768px) {
+  .googleAppsIcon {
+    font-size: 26px;
+    padding: 6px;
+  }
+}

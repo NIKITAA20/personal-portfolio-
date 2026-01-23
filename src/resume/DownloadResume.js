@@ -1,21 +1,18 @@
-import React from 'react';
-import './DownloadResume.css';
+import React from "react";
+import "./DownloadResume.css";
 
 const DownloadResume = () => {
   return (
     <div className="resume-download-card">
       <h3>Resume</h3>
-      <p className="resume-text">
-        Want to explore Nikita’s experience, skills, and academic achievements? 
-        Download her updated resume below.
-      </p>
 
       <a
-        href="/resume_nikita.pdf"
-        download="Nikita_Solanki_Resume.pdf"
-        className="resume-button"
+        href="https://drive.google.com/file/d/1Q7XbYl_jkwlArcu7NJLV8CyDy6j5bBxD/view"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="resume-button download"
       >
-        ⬇️ Download Resume
+        📄 View Resume
       </a>
     </div>
   );

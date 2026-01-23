@@ -109,11 +109,20 @@ const HomePage = () => {
  if (item.toLowerCase() === 'experience') {
     navigate('/experience-search');
   }
-if (item.toLowerCase() === 'skills') {
+ if (item.toLowerCase() === 'skills') {
     navigate('/skills-search');
-  } };
-
+  } 
+  if (item.toLowerCase() === 'resume') {
+    navigate('/resume');
+  } 
+  if (item.toLowerCase() === 'certifications') {
+    navigate('/certifications');
+  } 
+ };
   
+ 
+  
+
 
   const handleMicClick = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
