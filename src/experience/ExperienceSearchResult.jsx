@@ -1,7 +1,7 @@
 import React from "react";
 import './ExperienceSearchResult.css';
-import PeopleAlsoAsk from './PeopleAlsoAsk';
-import AISummary from './AISummary';
+import PeopleAlsoAsk from '../questions/PeopleAlsoAsk';
+import AISummary from '../summary/AISummary';
 
 const ExperienceSearchResult = () => {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import './EducationSearchResult.css';
-import PeopleAlsoAsk from './PeopleAlsoAsk';
-import AISummary from './AISummary';
-import SkillsRatings from './SkillsRatings';
-import DownloadResume from './DownloadResume';
+import PeopleAlsoAsk from '../questions/PeopleAlsoAsk';
+import AISummary from '../summary/AISummary';
+import SkillsRatings from '../skills/SkillsRatings';
+import DownloadResume from '../resume/DownloadResume';
 
 const EducationSearchResult = () => {
   return (

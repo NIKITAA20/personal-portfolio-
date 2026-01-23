@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './HomePage';
+import HomePage from './dashboard/HomePage';
 import About from './About';
-import EducationSearchResult from './EducationSearchResult';
-import ExperienceSearchResult from './ExperienceSearchResult'; 
-import SkillsSearchResult from './SkillsSearchResult';
+import EducationSearchResult from './education/EducationSearchResult';
+import ExperienceSearchResult from './experience/ExperienceSearchResult'; 
+import SkillsSearchResult from './skills/SkillsSearchResult';
 
 function App() {
   return (

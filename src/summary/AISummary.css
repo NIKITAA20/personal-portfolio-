@@ -29,7 +29,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent; /* standard */
+
   animation: textGradient 5s ease infinite;
   background-size: 400% 400%;
   text-align: center;
