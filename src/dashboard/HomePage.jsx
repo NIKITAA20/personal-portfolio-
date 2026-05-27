@@ -37,7 +37,10 @@ const HomePage = () => {
   const navigate = useNavigate();
 
 
-  const trendingItems = ['Resume', 'Education', 'Experience', 'Skills', 'Certifications', 'Contact'];
+ const trendingItems = useMemo(
+  () => ['Resume', 'Education', 'Experience', 'Skills', 'Certifications', 'Contact'],
+  []
+);
 
   const skillsData = {
     'Programming & Scripting': [
@@ -72,11 +75,10 @@ const HomePage = () => {
     ]
   };
 
-  const getSortedTrending = () => {
-    const rankings = JSON.parse(localStorage.getItem('rankingData')) || {};
-    return [...trendingItems].sort((a, b) => (rankings[b] || 0) - (rankings[a] || 0));
-  };
-
+const getSortedTrending = useCallback(() => {
+  const rankings = JSON.parse(localStorage.getItem('rankingData')) || {};
+  return [...trendingItems].sort((a, b) => (rankings[b] || 0) - (rankings[a] || 0));
+}, [trendingItems]);
   const [sortedTrending, setSortedTrending] = useState(getSortedTrending());
 
   useEffect(() => {
@@ -121,7 +123,7 @@ const HomePage = () => {
     else if (key === 'resume') navigate('/resume');
     else if (key === 'certifications') navigate('/certifications');
     else if (key === 'contact') navigate('/contact');
-  }, [navigate]);
+ }, [navigate, getSortedTrending]);
 
   useEffect(() => {
     setHighlightIndex(0);
