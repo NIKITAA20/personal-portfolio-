@@ -1,38 +1,36 @@
-import React from "react";
+import React from 'react';
 import './SkillsSearchResult.css';
+import SearchPageShell from '../components/SearchPageShell';
 import PeopleAlsoAsk from '../questions/PeopleAlsoAsk';
 import AISummary from '../summary/AISummary';
-import SkillsRatings from './SkillsRatings'; // ✅ add this
+import SkillsRatings from './SkillsRatings';
+import KnowledgePanel from '../components/KnowledgePanel';
 
-const SkillsSearchResult = () => {
-  return (
-    <div className="main-container">
-      {/* ===== Left Panel ===== */}
-      <div className="left-content">
-        <div className="search-bar">
-          <span className="logo">🔍 Nikita Solanki</span>
-          <input
-            className="search-input"
-            defaultValue="nikita solanki skills"
-          />
+const SkillsSearchResult = () => (
+  <SearchPageShell
+    query="nikita solanki skills"
+    left={
+      <>
+        <div className="search-result">
+          <div className="search-title" style={{ cursor: 'default', textDecoration: 'none' }}>
+            Technical & Professional Skills
+          </div>
+          <p className="search-description">
+            Proficient in Python, Java, C++, React, Node.js, MongoDB, Power BI, SQL, and data analytics.
+            Experienced with Kafka, Redis, Socket.IO, Git, and collaborative delivery.
+          </p>
         </div>
-
-        <div className="search-title">Technical & Professional Skills</div>
-        <p className="search-description">
-        I am proficient in Python, Java, C++ for programming and data analysis tasks. Experienced with Web Development (HTML, CSS, JavaScript, React, Node.js, Express.js) and Database Management (MySQL, MongoDB, Firebase). Skilled in Data Analytics and Visualization using Power BI, Excel, Pandas, NumPy, Seaborn. Familiar with AI & Machine Learning concepts, Socket.IO, Kafka, Redis, and project collaboration tools like Git & GitHub. I consistently apply problem-solving, analytical thinking, and teamwork in all my projects.
-        </p>
-
-        {/* ===== Skills Ratings Bar ===== */}
-        <SkillsRatings />  {/* ✅ directly use here */}
-      </div>
-
-      {/* ===== Right Panel (AI Summary + PeopleAlsoAsk) ===== */}
-      <div className="right-panel">
-        <PeopleAlsoAsk />
+        <SkillsRatings />
+      </>
+    }
+    right={
+      <>
+        <KnowledgePanel />
         <AISummary section="skills" />
-      </div>
-    </div>
-  );
-};
+        <PeopleAlsoAsk />
+      </>
+    }
+  />
+);
 
 export default SkillsSearchResult;

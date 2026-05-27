@@ -1,0 +1,117 @@
+.page-nav-wrap {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.page-nav-hint {
+  display: none;
+  margin: 0 0 6px;
+  padding: 0 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+  align-items: center;
+  gap: 6px;
+}
+
+.page-nav-hint__arrow {
+  color: var(--google-blue);
+  font-weight: 600;
+}
+
+.page-nav-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--google-blue) var(--bg-hover);
+  padding-bottom: 6px;
+}
+
+.page-nav-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.page-nav-scroll::-webkit-scrollbar-track {
+  background: var(--bg-hover);
+  border-radius: 6px;
+}
+
+.page-nav-scroll::-webkit-scrollbar-thumb {
+  background: var(--google-blue);
+  border-radius: 6px;
+}
+
+.page-nav {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  padding: 4px 6px 6px;
+  width: max-content;
+  min-width: unset;
+}
+
+.page-nav__link {
+  padding: 9px 18px;
+  font-size: 13px;
+  margin: 0;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text-secondary);
+  background: var(--bg-hover);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.page-nav__link:hover {
+  background: var(--bg-card);
+  border-color: var(--border-light);
+  color: var(--google-blue);
+}
+
+.page-nav__link--active {
+  background: var(--google-blue-light);
+  color: var(--google-blue);
+  border-color: var(--google-blue);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .page-nav-hint {
+    display: flex;
+  }
+
+  .page-nav-wrap {
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  /* Fade on right edge — scroll hint */
+  .page-nav-wrap::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    right: 0;
+    width: 40px;
+    height: calc(100% - 22px);
+    background: linear-gradient(to left, var(--bg-page), transparent);
+    pointer-events: none;
+    border-radius: 0 8px 0 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .page-nav {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .page-nav-scroll {
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+}

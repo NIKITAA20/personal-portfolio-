@@ -1,0 +1,150 @@
+.google-nikita-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+}
+
+.logo-wordmark {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: 0 4px;
+  font-family: 'Outfit', 'Google Sans', 'Segoe UI', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -2px;
+  line-height: 1;
+  overflow: visible;
+}
+
+.google-nikita-logo.large .logo-letter {
+  font-size: clamp(3.25rem, 11vw, 6rem);
+}
+
+.google-nikita-logo.medium .logo-letter {
+  font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+  letter-spacing: -0.5px;
+}
+
+.google-nikita-logo.small .logo-letter {
+  font-size: 1.4rem;
+  letter-spacing: -0.5px;
+}
+
+.logo-letter {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.logo-letter--i {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 0.02em;
+}
+
+.logo-i-body {
+  line-height: 0.85;
+}
+
+.logo-i-dot {
+  width: 0.22em;
+  height: 0.22em;
+  border-radius: 50%;
+  margin-top: 0.06em;
+  flex-shrink: 0;
+}
+
+/* Idle wave — letters gently bob after entrance */
+.logo-wordmark--idle .logo-letter:nth-child(1) {
+  animation: logoBob 2.8s ease-in-out infinite;
+}
+.logo-wordmark--idle .logo-letter:nth-child(2) {
+  animation: logoBob 2.8s ease-in-out 0.12s infinite;
+}
+.logo-wordmark--idle .logo-letter:nth-child(3) {
+  animation: logoBob 2.8s ease-in-out 0.24s infinite;
+}
+.logo-wordmark--idle .logo-letter:nth-child(4) {
+  animation: logoBob 2.8s ease-in-out 0.36s infinite;
+}
+.logo-wordmark--idle .logo-letter:nth-child(5) {
+  animation: logoBob 2.8s ease-in-out 0.48s infinite;
+}
+.logo-wordmark--idle .logo-letter:nth-child(6) {
+  animation: logoBob 2.8s ease-in-out 0.6s infinite;
+}
+
+@keyframes logoBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+/* Shine sweep on load */
+.logo-shine {
+  position: absolute;
+  inset: -10% -5%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+  animation: logoShine 1.8s ease-in-out 0.9s 1 forwards;
+  opacity: 0;
+}
+
+@keyframes logoShine {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+[data-theme='dark'] .logo-shine {
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 60%
+  );
+}
+
+.logo-letter:hover {
+  filter: drop-shadow(0 6px 14px color-mix(in srgb, var(--letter-color) 45%, transparent));
+}
+
+.logo-subtitle {
+  margin: 22px 0 0;
+  padding: 0 8px;
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.google-nikita-logo.medium .logo-subtitle,
+.google-nikita-logo.small .logo-subtitle {
+  display: none;
+}

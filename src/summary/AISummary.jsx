@@ -1,117 +1,108 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from 'react';
+import AIAgent from '../components/AIAgent';
+import { crispSummaries } from '../data/profileData';
 import './AISummary.css';
 
-const profileData = {
-  education: [
-    {
-      degree: "Bachelor of Engineering (Computer)",
-      institution: "University of Mumbai – VCET",
-      year: "2023–2027",
-      cgpa: "8.98/10",
-      highlights: [
-        "Hands-on projects in Web Development, AI, and Data Analytics",
-        "Participated in hackathons and technical fests",
-        "Experienced in MySQL, MongoDB, AutoCAD, Power BI, Java, Firebase"
-      ]
-    },
-    {
-      degree: "Higher Secondary Certificate (Science Stream)",
-      institution: "Annasaheb Vartak College, Vasai",
-      year: "2021–2023",
-      cgpa: "80%",
-      highlights: [
-        "Deep interest in Computer Science & Programming",
-        "Mastered C++, HTML, and CSS",
-        "Demonstrated analytical thinking and creativity"
-      ]
-    },
-    {
-      degree: "Secondary School Certificate",
-      institution: "St. Anthony's Convent School, Vasai",
-      year: "2008–2021",
-      cgpa: "93.40%",
-      highlights: [
-        "Sports Captain – leadership and teamwork",
-        "Strong foundation in mathematics and logical reasoning",
-        "Consistency, discipline, and time management"
-      ]
-    }
-  ],
-  experience: [
-    {
-      title: "MERN Intern | Vervali Systems Ltd Pvt",
-      period: "Dec 2025 – Present",
-      summary: "Worked on Node.js backend, real-time features, caching, and search optimizations."
-    },
-    {
-      title: "Data Analyst Intern | Unified Mentor",
-      period: "Jun 2025 – Dec 2025",
-      summary: "Analyzed structured and unstructured data using Python, SQL, and Power BI; improved reporting efficiency by 25%."
-    },
-    {
-      title: "Power BI Intern | Cognifyz Technologies",
-      period: "Jun 2025 – Jul 2025",
-      summary: "Designed dashboards with DAX & Power Query; improved campaign targeting by 30%."
-    },
-    {
-      title: "Data Analyst Intern | AICTE – Edunet Foundation",
-      period: "Nov 2024 – Dec 2024",
-      summary: "Performed EDA on 5,000+ transactions; reduced analysis time by 40%."
-    },
-    {
-      title: "Python Developer Intern | Octanet Tech Labs",
-      period: "Aug 2024 – Nov 2024",
-      summary: "Built console-based ATM system; applied modular Python programming."
-    }
-  ],
-  // projects, skills can be added similarly
-};
+const TYPE_SPEED = 12;
 
-const AISummary = ({ section }) => {
-  const [summary, setSummary] = useState([]);
+function useTypewriter(text, active) {
+  const [displayed, setDisplayed] = useState('');
 
   useEffect(() => {
-    if (!profileData[section]) return;
-
-    let generatedSummary = [];
-
-    if (section === "education") {
-      generatedSummary = profileData.education.map((edu, index) => ({
-        id: index,
-        title: `${edu.degree} (${edu.institution}, ${edu.year})`,
-        details: edu.highlights.map(h => `• ${h}`),
-        cgpa: edu.cgpa
-      }));
-    } else if (section === "experience") {
-      generatedSummary = profileData.experience.map((exp, index) => ({
-        id: index,
-        title: exp.title,
-        details: [exp.summary],
-        cgpa: null
-      }));
+    if (!active || !text) {
+      setDisplayed('');
+      return undefined;
     }
-    // Future: Add projects, skills, etc.
+    setDisplayed('');
+    let i = 0;
+    const id = setInterval(() => {
+      i += 1;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) clearInterval(id);
+    }, TYPE_SPEED);
+    return () => clearInterval(id);
+  }, [text, active]);
 
-    setSummary(generatedSummary);
-  }, [section]);
+  return displayed;
+}
 
-  if (!profileData[section]) return null;
+const AISummary = ({ section }) => {
+  const content = useMemo(() => crispSummaries[section] ?? null, [section]);
+  const [phase, setPhase] = useState('thinking');
+  const [showBullets, setShowBullets] = useState(false);
+
+  const introText = useTypewriter(
+    content?.intro ?? '',
+    phase === 'speaking' || phase === 'done'
+  );
+  const agentState =
+    phase === 'thinking' ? 'thinking' : phase === 'speaking' ? 'speaking' : 'idle';
+
+  useEffect(() => {
+    if (!content) return undefined;
+    setPhase('thinking');
+    setShowBullets(false);
+
+    const thinkTimer = setTimeout(() => setPhase('speaking'), 700);
+    const speakTimer = setTimeout(
+      () => setPhase('done'),
+      700 + content.intro.length * TYPE_SPEED + 300
+    );
+    const bulletTimer = setTimeout(
+      () => setShowBullets(true),
+      700 + content.intro.length * TYPE_SPEED + 500
+    );
+
+    return () => {
+      clearTimeout(thinkTimer);
+      clearTimeout(speakTimer);
+      clearTimeout(bulletTimer);
+    };
+  }, [content, section]);
+
+  if (!content) return null;
+
+  const introDone = introText.length >= content.intro.length;
 
   return (
-    <div className="ai-summary-container">
-      <h3>AI SUMMARY</h3>
-      {summary.map((item) => (
-        <div key={item.id} className="education-card">
-          <h4>
-            {item.title} {item.cgpa && <span className="cgpa">({item.cgpa})</span>}
-          </h4>
-          <ul>
-            {item.details.map((d, i) => (
-              <li key={i}>{d}</li>
+    <div className="ai-overview ai-overview--crisp">
+      <div className="ai-overview__header">
+        <div className="ai-overview__agent-wrap">
+          <AIAgent state={agentState} size="md" />
+        </div>
+        <div className="ai-overview__title-block">
+          <div className="ai-overview__badge">
+            <span className="ai-sparkle" aria-hidden="true">✦</span>
+            AI Overview
+          </div>
+          <p className="ai-overview__status">
+            {phase === 'thinking' && 'Summarizing…'}
+            {phase === 'speaking' && 'Writing summary…'}
+            {phase === 'done' && 'Quick snapshot — not full details'}
+          </p>
+        </div>
+      </div>
+
+      <div className="ai-overview__intro ai-overview__intro--crisp">
+        <p>
+          {introText}
+          {!introDone && phase !== 'thinking' && <span className="ai-cursor">|</span>}
+        </p>
+      </div>
+
+      {showBullets && phase === 'done' && (
+        <div className="ai-overview__highlights">
+          <p className="ai-overview__highlights-label">Key points</p>
+          <ul className="ai-overview__highlight-list">
+            {content.highlights.map((line) => (
+              <li key={line}>{line}</li>
             ))}
           </ul>
+          {content.footnote && (
+            <p className="ai-overview__footnote">{content.footnote}</p>
+          )}
         </div>
-      ))}
+      )}
     </div>
   );
 };

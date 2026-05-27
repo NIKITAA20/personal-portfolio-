@@ -1,49 +1,16 @@
-/* ===== Google-Style Portfolio Page (Full Screen & Dynamic) ===== */
-body {
-    margin: 0;
-    font-family: 'Roboto', 'Arial', sans-serif;
-    background: #f8f9fa;
-    color: #202124;
-    overflow-x: hidden;  /* horizontal scroll remove */
-    width: 100vw;
-    height: auto;  /* scrollable page */
-    box-sizing: border-box;  /* padding include in width */
-}
-
-/* Main layout */
+/* Override old flex layout — page-shell handles layout */
 .main-container {
-    display: flex;
-    flex-wrap: nowrap;   /* ek row me rahe left & right */
-    gap: 40px;
-    padding: 40px;
-    justify-content: space-between;  /* dono panels screen me fit */
-    width: 100%;
-    max-width: 100%;
-    animation: fadeInBody 1.2s ease-in-out;
-    box-sizing: border-box;  /* ensure padding doesn't cause overflow */
+  display: block;
+  padding: 0;
+  max-width: none;
 }
 
-.left-content {
-    flex: 2 1 0;       /* left content ko zyada space */
-    min-width: 0;      /* important: overflow fix */
-    animation: slideUp 1s ease-in-out;
-    overflow-wrap: break-word;  /* prevent text overflow */
-    word-break: break-word;
-}
-
+.left-content,
 .right-panel {
-    flex: 1 1 300px;   /* right panel ka flexible size */
-    min-width: 220px;  /* reduced min-width to better fit smaller screens */
-    max-width: 400px;
-    position: sticky;
-    top: 50px;
-    height: fit-content;
-    animation: slideInRight 1.2s ease-in-out;
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(60,64,67,0.15);
-    box-sizing: border-box;
+  flex: none;
+  max-width: none;
+  width: 100%;
+  position: static;
 }
 
 /* ===== Search bar ===== */
@@ -89,46 +56,16 @@ body {
     box-shadow: 0 0 0 2px #1a73e8;
 }
 
-/* ===== Search Results ===== */
+/* Search results — base styles in global.css */
 .search-result {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    animation: fadeInUp 0.8s ease;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-wrap: break-word;  /* prevent text from overflowing */
+    animation: fadeInUp 0.6s ease backwards;
+    overflow-wrap: break-word;
     word-break: break-word;
 }
-.search-result:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 14px rgba(60, 64, 67, 0.15);
-}
-.search-title {
-    display: inline-block;
-    color: #1a0dab;
-    font-weight: 500;
-    font-size: 17px;
-    text-decoration: none;
-    margin-bottom: 8px;
-    overflow-wrap: break-word;  /* ensure long titles wrap */
-    word-break: break-word;
-    max-width: 100%;
-}
-.search-title:hover {
-    text-decoration: underline;
-}
-.search-description {
-    font-size: 15px;
-    color: #4d5156;
-    line-height: 1.6;
-    overflow-wrap: break-word;  /* ensure descriptions wrap */
-    word-break: break-word;
-    max-width: 100%;
-}
+
+.search-result:nth-child(2) { animation-delay: 0.05s; }
+.search-result:nth-child(3) { animation-delay: 0.1s; }
+.search-result:nth-child(4) { animation-delay: 0.15s; }
 
 /* ===== Subtle animations ===== */
 @keyframes fadeInBody {

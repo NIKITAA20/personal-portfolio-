@@ -1,9 +1,9 @@
 .skills-card {
-  background: linear-gradient(145deg, #ffffff, #f3f4f6);
+  background: var(--bg-card);
   padding: 25px 30px;
   border-radius: 12px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
   margin-bottom: 40px;
   animation: fadeIn 0.8s ease-in-out;
 }
@@ -11,7 +11,7 @@
 .skills-card h3 {
   font-size: 20px;
   font-weight: 600;
-  color: #1a73e8;
+  color: var(--google-blue);
   margin-bottom: 20px;
   text-align: left;
 }
@@ -33,19 +33,19 @@
   display: flex;
   justify-content: space-between;
   font-size: 15px;
-  color: #202124;
+  color: var(--text-primary);
   font-weight: 500;
   margin-bottom: 6px;
 }
 
 .skill-percent {
-  color: #1a73e8;
+  color: var(--google-blue);
   font-weight: 600;
   transition: color 0.3s;
 }
 
 .skill-bar {
-  background-color: #e8eaed;
+  background-color: var(--bg-hover);
   border-radius: 6px;
   height: 10px;
   width: 100%;

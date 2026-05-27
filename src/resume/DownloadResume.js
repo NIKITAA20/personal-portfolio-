@@ -1,21 +1,13 @@
-import React from "react";
-import "./DownloadResume.css";
+import React from 'react';
+import SearchPageShell from '../components/SearchPageShell';
+import ResumeDownloadCard from './ResumeDownloadCard';
 
-const DownloadResume = () => {
-  return (
-    <div className="resume-download-card">
-      <h3>Resume</h3>
-
-      <a
-        href="https://drive.google.com/file/d/1Q7XbYl_jkwlArcu7NJLV8CyDy6j5bBxD/view"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="resume-button download"
-      >
-        📄 View Resume
-      </a>
-    </div>
-  );
-};
+const DownloadResume = () => (
+  <SearchPageShell
+    query="nikita solanki resume download"
+    className="resume-page"
+    left={<ResumeDownloadCard />}
+  />
+);
 
 export default DownloadResume;
