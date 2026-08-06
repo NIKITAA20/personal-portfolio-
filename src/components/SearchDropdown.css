@@ -64,7 +64,7 @@
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: #dadce0 transparent;
+  scrollbar-color: var(--google-blue) transparent;
 }
 
 .search-dropdown__scroll::-webkit-scrollbar {
@@ -72,12 +72,12 @@
 }
 
 .search-dropdown__scroll::-webkit-scrollbar-thumb {
-  background: #dadce0;
-  border-radius: 6px;
+  background: var(--google-blue);
+  border-radius: 999px;
 }
 
 .search-dropdown__scroll::-webkit-scrollbar-thumb:hover {
-  background: #bdc1c6;
+  background: var(--chip-text);
 }
 
 .search-dropdown__header-icon {

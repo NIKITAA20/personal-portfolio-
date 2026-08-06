@@ -6,13 +6,14 @@ import GoogleNikitaLogo from '../components/GoogleNikitaLogo';
 import SearchDropdown, { SEARCH_SUGGESTIONS } from '../components/SearchDropdown';
 import ThemeToggle from '../components/ThemeToggle';
 import PageNav from '../components/PageNav';
-import { getRouteFromSpeech } from '../utils/navigation';
+import { getRouteFromSpeech, goToRoute, openResume, RESUME_DRIVE_URL } from '../utils/navigation';
 
 const LUCKY_ROUTES = [
   '/education-search',
   '/experience-search',
+  '/projects-search',
   '/skills-search',
-  '/resume',
+  RESUME_DRIVE_URL,
   '/certifications',
   '/contact',
 ];
@@ -38,7 +39,7 @@ const HomePage = () => {
 
 
  const trendingItems = useMemo(
-  () => ['Resume', 'Education', 'Experience', 'Skills', 'Certifications', 'Contact'],
+  () => ['Resume', 'Education', 'Experience', 'Projects', 'Skills', 'Certifications', 'Contact'],
   []
 );
 
@@ -119,8 +120,9 @@ const getSortedTrending = useCallback(() => {
     const key = item.toLowerCase();
     if (key === 'education') navigate('/education-search');
     else if (key === 'experience') navigate('/experience-search');
+    else if (key === 'projects') navigate('/projects-search');
     else if (key === 'skills') navigate('/skills-search');
-    else if (key === 'resume') navigate('/resume');
+    else if (key === 'resume') openResume();
     else if (key === 'certifications') navigate('/certifications');
     else if (key === 'contact') navigate('/contact');
  }, [navigate, getSortedTrending]);
@@ -180,7 +182,7 @@ const getSortedTrending = useCallback(() => {
   const handleFeelingLucky = () => {
     const route = LUCKY_ROUTES[Math.floor(Math.random() * LUCKY_ROUTES.length)];
     setShowDropdown(false);
-    navigate(route);
+    goToRoute(route, navigate);
   };
 
   const handleSearchSubmit = () => {
@@ -189,7 +191,7 @@ const getSortedTrending = useCallback(() => {
     const route = getRouteFromSpeech(q);
     if (route) {
       setShowDropdown(false);
-      navigate(route);
+      goToRoute(route, navigate);
     } else {
       handleSelectSearch(sortedTrending[0] || 'Resume');
     }
@@ -216,7 +218,7 @@ const getSortedTrending = useCallback(() => {
         const route = getRouteFromSpeech(speech);
         if (route) {
           setShowDropdown(false);
-          navigate(route);
+          goToRoute(route, navigate);
         } else {
           setShowDropdown(true);
         }

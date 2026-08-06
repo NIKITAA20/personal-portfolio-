@@ -21,12 +21,12 @@ const SkillsSearchResult = () => (
           </p>
         </div>
         <SkillsRatings />
+        <AISummary section="skills" />
       </>
     }
     right={
       <>
         <KnowledgePanel />
-        <AISummary section="skills" />
         <PeopleAlsoAsk />
       </>
     }

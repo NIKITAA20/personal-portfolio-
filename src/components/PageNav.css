@@ -25,21 +25,23 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: thin;
   scrollbar-color: var(--google-blue) var(--bg-hover);
-  padding-bottom: 6px;
+  padding-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .page-nav-scroll::-webkit-scrollbar {
-  height: 6px;
+  height: 5px;
 }
 
 .page-nav-scroll::-webkit-scrollbar-track {
   background: var(--bg-hover);
-  border-radius: 6px;
+  border-radius: 999px;
+  margin: 0 4px;
 }
 
 .page-nav-scroll::-webkit-scrollbar-thumb {
   background: var(--google-blue);
-  border-radius: 6px;
+  border-radius: 999px;
 }
 
 .page-nav {
@@ -88,19 +90,28 @@
   .page-nav-wrap {
     margin-bottom: 20px;
     position: relative;
+    padding-right: 0;
   }
 
-  /* Fade on right edge — scroll hint */
+  .page-nav-scroll {
+    padding-right: 12px;
+    padding-bottom: 10px;
+    /* Keep scrollbar fully inside the viewport */
+    max-width: 100%;
+  }
+
+  /* Fade on right edge — scroll hint (above content, not over scrollbar) */
   .page-nav-wrap::after {
     content: '';
     position: absolute;
     top: 22px;
     right: 0;
-    width: 40px;
-    height: calc(100% - 22px);
+    width: 28px;
+    height: calc(100% - 34px);
     background: linear-gradient(to left, var(--bg-page), transparent);
     pointer-events: none;
     border-radius: 0 8px 0 0;
+    z-index: 1;
   }
 }
 

@@ -24,8 +24,8 @@
 
 .page-shell__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 320px);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 300px);
+  gap: 28px;
   align-items: start;
   width: 100%;
 }
@@ -36,7 +36,6 @@
 }
 
 .page-shell--single.contact-page,
-.page-shell--single.resume-page,
 .page-shell--single.cert-page-shell {
   max-width: 960px;
 }

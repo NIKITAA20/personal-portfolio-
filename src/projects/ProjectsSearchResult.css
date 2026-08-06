@@ -1,0 +1,136 @@
+.project-domain-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.project-domain-filters__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text-secondary);
+  background: var(--bg-hover);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.project-domain-filters__btn:hover {
+  background: var(--bg-card);
+  border-color: var(--border-light);
+  color: var(--google-blue);
+}
+
+.project-domain-filters__btn--active {
+  background: var(--google-blue-light);
+  color: var(--google-blue);
+  border-color: var(--google-blue);
+  font-weight: 600;
+}
+
+.project-domain-filters__count {
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.75;
+  min-width: 1.1em;
+}
+
+.project-card__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 4px;
+}
+
+.project-card__top .search-title {
+  margin-bottom: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.project-card__domain {
+  flex-shrink: 0;
+  margin-top: 2px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--chip-text);
+  background: var(--chip-bg);
+  border-radius: var(--radius-pill);
+}
+
+.project-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: 8px 0 10px;
+}
+
+.project-card__link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--google-blue);
+  text-decoration: none;
+}
+
+.project-card__link:hover {
+  text-decoration: underline;
+}
+
+.project-card__link--demo {
+  color: var(--chip-text);
+}
+
+.project-card__skills {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+
+.project-card__skills-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.project-card__skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-card__skill {
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--chip-text);
+  background: var(--chip-bg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+}
+
+.project-card__more {
+  text-align: center;
+}
+
+.search-description a {
+  color: var(--google-blue);
+  text-decoration: none;
+}
+
+.search-description a:hover {
+  text-decoration: underline;
+}

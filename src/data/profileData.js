@@ -6,9 +6,10 @@ export const profileData = {
       year: '2023–2027',
       score: '8.98/10 CGPA',
       highlights: [
-        'Web Development, AI & Data Analytics projects',
-        'Hackathons & technical fests',
-        'MySQL, MongoDB, Power BI, Java, Firebase',
+        'DSA, DBMS, OS, networks & software engineering coursework',
+        'Web Development, AI/ML & Data Analytics projects',
+        'Hackathons & technical fests — ideation to demos',
+        'MySQL, MongoDB, Power BI, Java, Firebase, React',
       ],
     },
     {
@@ -17,8 +18,9 @@ export const profileData = {
       year: '2021–2023',
       score: '80%',
       highlights: [
+        'Physics, Chemistry, Mathematics with strong problem-solving',
         'C++, HTML, CSS fundamentals',
-        'Strong analytical & presentation skills',
+        'Analytical thinking & presentation skills',
       ],
     },
     {
@@ -29,14 +31,22 @@ export const profileData = {
       highlights: [
         'Sports Captain – leadership & teamwork',
         'Mathematics & logical reasoning foundation',
+        'Balanced academics with extracurricular ownership',
       ],
     },
   ],
   experience: [
     {
+      title: 'Web Developer',
+      company: 'VisionX Technologies',
+      period: '– Jun 2026',
+      summary:
+        'MERN stack web development — production UIs and APIs for client and internal products.',
+    },
+    {
       title: 'MERN Intern',
       company: 'Vervali Systems Ltd Pvt',
-      period: 'Dec 2025 – Present',
+      period: 'Dec 2025 – Jun 2026',
       summary:
         'Node.js backend with Kafka, Redis, Socket.IO & Elasticsearch — real-time features, caching & search optimization.',
     },
@@ -85,24 +95,36 @@ export const profileData = {
 export const crispSummaries = {
   education: {
     intro:
-      'B.E. Computer Engineering at VCET (Mumbai University), CGPA 8.98. Strong SSC (93.4%) & HSC (80%) with focus on programming and analytics.',
+      'B.E. Computer Engineering at VCET (Mumbai University), CGPA 8.98. HSC Science 80% and SSC 93.4% — strong academics plus leadership and hands-on tech.',
     highlights: [
-      'Currently at VCET — AI, web & data analytics projects',
-      'CGPA 8.98/10 · active in hackathons',
-      'Stack: MySQL, MongoDB, Power BI, Java',
+      'VCET — web, AI/ML & analytics projects · hackathons',
+      'CGPA 8.98/10 · MySQL, MongoDB, Power BI, React, Java',
+      'HSC Science @ Annasaheb Vartak — C++, HTML, CSS base',
+      'SSC 93.4% · Sports Captain · maths & logical reasoning',
     ],
     footnote: 'See full timeline in results →',
   },
   experience: {
     intro:
-      '5 internships across MERN backend, data analytics & Power BI — hands-on with real-time systems, dashboards, and Python automation.',
+      'Web Developer at VisionX Technologies (MERN) plus internships across backend, analytics & Power BI — real-time systems, dashboards, and full-stack delivery.',
     highlights: [
+      'Web Developer @ VisionX — MERN stack product work (ends Jun 2026)',
       'MERN @ Vervali — Kafka, Redis, Socket.IO, Elasticsearch',
       'Data Analyst @ Unified Mentor — 25% faster reporting',
       'Power BI @ Cognifyz — 1K+ survey insights, +30% targeting',
-      'Earlier: EDA (5K rows), Python ATM project',
     ],
     footnote: 'Full role details in results →',
+  },
+  projects: {
+    intro:
+      '12 featured projects across MERN, Data Science, Analytics, and Systems — filter by domain on the Projects page.',
+    highlights: [
+      'MERN: Axon, CodeSync, NapChat, MongoDB complaint dashboard (live demos)',
+      'Data Science: marketing ML pipeline + YOLO traffic violation CV',
+      'Analytics: Olist customer intel, Power BI investor dashboard, shopping trends',
+      'Systems: Worker Threads/Cluster, Kafka+Redis, Prisma API',
+    ],
+    footnote: 'Filter tabs + skill chips on each card →',
   },
   skills: {
     intro:

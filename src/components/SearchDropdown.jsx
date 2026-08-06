@@ -9,6 +9,7 @@ import {
   MdTrendingUp,
   MdHistory,
   MdArrowForward,
+  MdApps,
 } from 'react-icons/md';
 import './SearchDropdown.css';
 
@@ -33,6 +34,13 @@ export const SEARCH_SUGGESTIONS = [
     desc: 'Internships & impact metrics',
     color: '#34A853',
     icon: MdWork,
+  },
+  {
+    id: 'projects',
+    label: 'Projects',
+    desc: 'Featured builds & case studies',
+    color: '#FF6D01',
+    icon: MdApps,
   },
   {
     id: 'skills',

@@ -1,12 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { RESUME_DRIVE_URL, goToRoute } from '../utils/navigation';
 import './KnowledgePanel.css';
 
 const RELATED = [
   { label: 'Education', path: '/education-search' },
   { label: 'Experience', path: '/experience-search' },
+  { label: 'Projects', path: '/projects-search' },
   { label: 'Skills', path: '/skills-search' },
-  { label: 'Resume', path: '/resume' },
+  { label: 'Resume', path: RESUME_DRIVE_URL, external: true },
 ];
 
 const KnowledgePanel = () => {
@@ -47,7 +49,7 @@ const KnowledgePanel = () => {
         </div>
         <div className="knowledge-panel__fact">
           <dt>Experience</dt>
-          <dd>5 internships</dd>
+          <dd>VisionX · MERN & analytics</dd>
         </div>
       </dl>
 
@@ -92,7 +94,7 @@ const KnowledgePanel = () => {
               key={item.path}
               type="button"
               className="knowledge-panel__related-btn"
-              onClick={() => navigate(item.path)}
+              onClick={() => goToRoute(item.path, navigate)}
             >
               {item.label}
             </button>

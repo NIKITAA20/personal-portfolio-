@@ -16,12 +16,12 @@ const faqList = [
   {
     question: "What are some of Nikita's key projects?",
     answer:
-      'Her projects include an AI-Powered Resume Builder, Traffic Violation Detection System, and Agricultural Supply Chain Management using Blockchain, IoT, and AI.',
+      'Highlights include Axon (AI Gmail workspace), CodeSync (real-time collaborative coding), NapChat (chat + WebRTC calls), a MongoDB complaint analytics dashboard, YOLO traffic-violation detection, Opportune AI career assistant, and end-to-end marketing/customer intelligence platforms — all on github.com/NIKITAA20.',
   },
   {
     question: 'Which certifications has Nikita completed?',
     answer:
-      'She has completed certifications in Data Analytics with Power BI, AI & ML Foundations, and Web Development using React and Firebase.',
+      'Credentials include DB Academy (Database Developer, Practitioner & Administrator), HP LIFE Data Science & Analytics, Infosys Springboard Java, Forage simulations with Accenture and JPMorgan Chase, SQL Bootcamp, DevTown C++/DSA, and MLSC–VCET Git & Python challenges.',
   },
   {
     question: 'What extracurricular achievements does Nikita have?',
